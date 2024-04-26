@@ -1,13 +1,23 @@
 const board = function() {
-  for (let row = 0; row < 16; row++) {
-    const square = document.createElement('div');
-    const container = document.querySelector('.container');
-    square.className = 'square';
+  const container = document.querySelector('.container');
 
-    for (let column = 0; column < 16; column++) {
-      container.appendChild(square);
-    }
+  for (row = 0; row < 16; row++) {
+    const allRows = document.createElement('div');
+    allRows.className = 'all-rows';
+
+    container.appendChild(allRows);
   }
+
+  const getAllRows = document.querySelectorAll('.all-rows');
+
+  getAllRows.forEach(eachRow => {
+    for (let i = 0; i < 16; i++) {
+      const square = document.createElement('div');
+      square.className = 'square';
+  
+      eachRow.appendChild(square);  
+    }
+  });
 }
 
 board();
