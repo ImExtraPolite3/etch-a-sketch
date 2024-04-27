@@ -13,6 +13,8 @@ const board = function() {
 
   getAllRows.forEach(eachRow => {
     for (let i = 0; i < numOfRC; i++) {
+      eachRow.style.height = 600 / numOfRC + 'px';
+      
       const square = document.createElement('div');
       square.className = 'square';
       eachRow.appendChild(square);  
