@@ -46,8 +46,15 @@ const changeSizeOfGrid = function() {
     removeAllSquares();
     numOfRC = Number(prompt('Enter a number: '));
 
-    board();
-    addHoverEffect();
+    if (numOfRC <= 100) {
+      board();
+      addHoverEffect();
+    } else {
+      numOfRC = Number(prompt('Number is too large. Please enter a new number: '));
+
+      board();
+      addHoverEffect();
+    } 
   });
 }
 
