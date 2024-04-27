@@ -1,11 +1,12 @@
 .container {
   display: flex;
+  padding: auto;
 }
 
 .square {
   width: 0px;
   padding: 20px;
-  border: solid;
+  border: solid thin;
 }
 
 .change-color {

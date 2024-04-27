@@ -1,7 +1,9 @@
+let numOfRC = 16;
+
 const board = function() {
   const container = document.querySelector('.container');
 
-  for (row = 0; row < 16; row++) {
+  for (row = 0; row < numOfRC; row++) {
     const allRows = document.createElement('div');
     allRows.className = 'all-rows';
     container.appendChild(allRows);
@@ -10,7 +12,7 @@ const board = function() {
   const getAllRows = document.querySelectorAll('.all-rows');
 
   getAllRows.forEach(eachRow => {
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < numOfRC; i++) {
       const square = document.createElement('div');
       square.className = 'square';
       eachRow.appendChild(square);  
@@ -24,9 +26,30 @@ const addHoverEffect = function() {
   allSquares.forEach(eachSquare => {
     eachSquare.addEventListener('mouseover', () => {
       eachSquare.className = 'square change-color';
-    })
+    });
+  });
+}
+
+const removeAllSquares = function() {
+  const container = document.querySelector('.container');
+  const allSquares = document.querySelector('.square');
+  const getAllRows = document.querySelectorAll('.all-rows');
+
+  for (let i = 0; i < numOfRC; i++) {
+    container.removeChild(getAllRows);
+  }
+}
+
+
+const changeSizeOfGrid = function() {
+  const changeSize = document.querySelector('button');
+
+  changeSize.addEventListener('click', () => {
+    removeAllSquares();
+    // numOfRC = Number(prompt('Enter a number: '));
   });
 }
 
 board();
 addHoverEffect();
+changeSizeOfGrid();
