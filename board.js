@@ -32,21 +32,22 @@ const addHoverEffect = function() {
 
 const removeAllSquares = function() {
   const container = document.querySelector('.container');
-  const allSquares = document.querySelector('.square');
   const getAllRows = document.querySelectorAll('.all-rows');
 
-  for (let i = 0; i < numOfRC; i++) {
-    container.removeChild(getAllRows);
-  }
+  getAllRows.forEach(eachRow => {
+    container.removeChild(eachRow);
+  });
 }
-
 
 const changeSizeOfGrid = function() {
   const changeSize = document.querySelector('button');
 
   changeSize.addEventListener('click', () => {
     removeAllSquares();
-    // numOfRC = Number(prompt('Enter a number: '));
+    numOfRC = Number(prompt('Enter a number: '));
+
+    board();
+    addHoverEffect();
   });
 }
 
